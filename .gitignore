@@ -3,4 +3,8 @@ venv/
 .idea
 .DS_Store
 f_d_m_1_venv/
+justsmthpy/__pycache__/__init__.cpython-36.pyc
+justsmthpy/__pycache__/models.cpython-36.pyc
+justsmthpy/__pycache__/routes.cpython-36.pyc
 __pycache__/
+justsmthpy/__pycache__/
