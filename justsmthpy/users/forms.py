@@ -1,8 +1,10 @@
 from flask_wtf import FlaskForm
-from flask_wtf.file import FileField, FileAllowed, FileRequired
 from flask_login import current_user
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField
-from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
+from flask_wtf import FlaskForm
+from flask_wtf.file import FileAllowed
+from wtforms import StringField, PasswordField, SubmitField, ValidationError, BooleanField, FileField
+from wtforms.validators import EqualTo, DataRequired, Email, Length
+
 from justsmthpy.models import User
 
 
@@ -50,12 +52,6 @@ class UpdateAccountForm(FlaskForm):
                 raise ValidationError('That email is taken. Please enter a different one')
 
 
-class PostForm(FlaskForm):
-    title = StringField('Title', validators=[DataRequired()])
-    content = TextAreaField('Content', validators=[DataRequired()])
-    submit = SubmitField('Post')
-
-
 class RequestResetForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     submit = SubmitField('Request password reset')
@@ -66,7 +62,7 @@ class RequestResetForm(FlaskForm):
             raise ValidationError('There is no account with that email.')
 
 
-class RequestPasswordForm(FlaskForm):
+class ResetPasswordForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Reset password')
