@@ -1,2 +1,2 @@
 # justsmthpy
-a flask thing
+a flask thing to learn with a tutorial
